@@ -14,7 +14,7 @@ export default (mongoose, mongoosePaginate) => {
     localField: '_id'
   });
   schema.virtual('totalValues').get(function() {
-    return this.expensesInCategory.reduce((total, item) => total + item.value, 0);
+    return this.expensesInCategory?.reduce((total, item) => total + item.value, 0);
  });
   schema.method("toJSON", function () {
     const { __v, _id, ...object } = this.toObject();
