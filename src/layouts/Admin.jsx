@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useLocation, Route, Switch, useHistory
 } from 'react-router-dom';
@@ -7,17 +7,16 @@ import Footer from 'components/Footer/Footer';
 import Sidebar from 'components/Sidebar/Sidebar';
 import routes from 'routes';
 import useAuthentication from 'stores/authentication/authentication';
+import useDeviceDetect from 'ultis/useDeviceDetect';
 import { ROUTES } from 'common/constants';
 import sidebarImage from 'assets/img/sidebar-5.jpg';
 
 function Admin() {
-  const [image] = useState(sidebarImage);
-  const [color] = useState('black');
-  const [hasImage] = useState(true);
-  const location = useLocation();
-  const mainPanel = useRef(null);
-  const [authentication] = useAuthentication();
   const history = useHistory();
+  const location = useLocation();
+  const { isMobile } = useDeviceDetect();
+  const [authentication] = useAuthentication();
+  const [isSidebarVisible, setIsSidebarVisible] = useState(!isMobile);
   const renderRoute = (prop) => (
     <Route
       path={prop.layout + prop.path}
@@ -32,19 +31,17 @@ function Admin() {
     return null;
   });
 
+  const toggleSidebar = () => {
+    setIsSidebarVisible((prevState) => !prevState);
+  };
+
   useEffect(() => {
-    document.documentElement.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
-    mainPanel.current.scrollTop = 0;
-    if (
-      window.innerWidth < 993
-      && document.documentElement.className.indexOf('nav-open') !== -1
-    ) {
-      document.documentElement.classList.toggle('nav-open');
-      const element = document.getElementById('bodyClick');
-      element.parentNode.removeChild(element);
+    if (isMobile) {
+      document.documentElement.scrollTop = 0;
+      document.scrollingElement.scrollTop = 0;
+      setIsSidebarVisible(false);
     }
-  }, [location]);
+  }, [location, isMobile]);
 
   useEffect(() => {
     if (!authentication.loggedIn) {
@@ -55,9 +52,9 @@ function Admin() {
   return (
     <>
       <div className="wrapper">
-        <Sidebar color={color} image={hasImage ? image : ''} routes={routes} />
-        <div className="main-panel" ref={mainPanel}>
-          <AdminNavbar />
+        {isSidebarVisible && <Sidebar color="black" image={sidebarImage} routes={routes} />}
+        <div className="main-panel">
+          <AdminNavbar toggleSidebar={toggleSidebar} />
           <div className="content">
             <Switch>{getRoutes(routes)}</Switch>
           </div>

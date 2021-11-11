@@ -2786,14 +2786,6 @@ Copyright (c) 2015 Daniel Eden
 /*          Changes for small display      */
 @media (max-width: 991px) {
   .sidebar {
-    right: 0 !important;
-    left: auto;
-    position: absolute;
-    -webkit-transform: translate3d(262px, 0, 0);
-    -moz-transform: translate3d(262px, 0, 0);
-    -o-transform: translate3d(262px, 0, 0);
-    -ms-transform: translate3d(262px, 0, 0);
-    transform: translate3d(262px, 0, 0) !important;
     -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -2870,8 +2862,6 @@ Copyright (c) 2015 Daniel Eden
       padding-left: 50px; }
   .main-panel {
     width: 100%; }
-  .navbar-brand {
-    padding: 15px 15px; }
   .navbar-transparent {
     padding-top: 15px;
     background-color: rgba(0, 0, 0, 0.45); }

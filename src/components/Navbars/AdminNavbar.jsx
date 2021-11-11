@@ -6,7 +6,7 @@ import routes from 'routes';
 import useAuthentication from 'stores/authentication/authentication';
 import { ROUTES } from 'common/constants';
 
-function Header() {
+function Header({ toggleSidebar }) {
   const location = useLocation();
   const history = useHistory();
   const [authenticationState, authenticationActions] = useAuthentication();
@@ -36,7 +36,7 @@ function Header() {
             {getBrandText()}
           </Navbar.Brand>
         </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-2">
+        <Navbar.Toggle onClick={toggleSidebar} aria-controls="basic-navbar-nav" className="mr-2">
           <span className="navbar-toggler-bar burger-lines" />
           <span className="navbar-toggler-bar burger-lines" />
           <span className="navbar-toggler-bar burger-lines" />

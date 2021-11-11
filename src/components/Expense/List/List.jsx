@@ -66,7 +66,7 @@ const ExpenseList = () => {
             <Badge variant="secondary">List of expenses</Badge>
             <Button onClick={handleCreate} size="sm" className="btn-fill pull-right">
               <i className="nc-icon nc-simple-add" />
-              {' Create new expense'}
+              {' Create'}
             </Button>
           </Card.Title>
           <p className="card-category">

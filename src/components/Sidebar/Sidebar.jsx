@@ -1,11 +1,18 @@
 import React from 'react';
-import { useLocation, NavLink, Link } from 'react-router-dom';
+import {
+  useLocation, NavLink, Link, useHistory
+} from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import useDeviceDetect from 'ultis/useDeviceDetect';
 import Logo from 'assets/img/reactlogo.png';
 import { ROUTES } from 'common/constants';
+import useAuthentication from 'stores/authentication/authentication';
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
+  const history = useHistory();
+  const [, authenticationActions] = useAuthentication();
+  const { isMobile } = useDeviceDetect();
   const activeRoute = (routeName) => (location.pathname.indexOf(routeName) > -1 ? 'active' : '');
   const renderMenuItem = (prop) => (
     <li
@@ -26,6 +33,11 @@ function Sidebar({ color, image, routes }) {
       </NavLink>
     </li>
   );
+  const handleLogout = (event) => {
+    event.preventDefault();
+    authenticationActions.logout();
+    history.replace(ROUTES.LOGIN);
+  };
 
   return (
     <div className="sidebar" data-image={image} data-color={color}>
@@ -60,6 +72,7 @@ function Sidebar({ color, image, routes }) {
             return null;
           })}
         </Nav>
+        {isMobile && <Link to="/" className="logout" onClick={handleLogout}>LOG OUT</Link>}
       </div>
     </div>
   );
