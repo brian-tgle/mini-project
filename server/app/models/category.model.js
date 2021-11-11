@@ -13,6 +13,8 @@ export default (mongoose, mongoosePaginate) => {
     return object;
   });
 
+  schema.virtual('id').get(function() { return this._id; });
+
   schema.plugin(mongoosePaginate);
 
   const Category = mongoose.model("category", schema);

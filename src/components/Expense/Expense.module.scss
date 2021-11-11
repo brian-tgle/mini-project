@@ -1,0 +1,19 @@
+.index {
+  width: 1%;
+}
+.category {
+  width: 15%;
+}
+
+
+.adminAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.formActions, .expenseHeader {
+  display: flex;
+  justify-content: space-between;
+}
+

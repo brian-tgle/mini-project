@@ -4,7 +4,7 @@ export default (mongoose, mongoosePaginate) => {
       category: { type: mongoose.Schema.Types.ObjectId, ref: 'category' },
       title: String,
       date: Date,
-      rejectionReason: Number,
+      value: Number,
       createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
     },
     { timestamps: true }

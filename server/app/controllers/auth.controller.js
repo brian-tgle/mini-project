@@ -18,7 +18,7 @@ import db from '../models/index.js';
 
 const User = db.users;
 
-const userController = express.Router();
+const authController = express.Router();
 
 const createUser = (username, password, fullname) => {
   const data = {
@@ -33,7 +33,7 @@ const createUser = (username, password, fullname) => {
  * POST/
  * Register a user
  */
-userController.post('/register', registerValidation, async (req, res) => {
+authController.post('/register', registerValidation, async (req, res) => {
   const errorsAfterValidation = validationResult(req);
   if (!errorsAfterValidation.isEmpty()) {
     return res.status(400).json({
@@ -69,7 +69,7 @@ userController.post('/register', registerValidation, async (req, res) => {
  * POST/
  * Login a user
  */
-userController.post('/login', loginValidation, async (req, res) => {
+authController.post('/login', loginValidation, async (req, res) => {
   const errorsAfterValidation = validationResult(req);
   if (!errorsAfterValidation.isEmpty()) {
     return res.status(400).json({
@@ -98,4 +98,4 @@ userController.post('/login', loginValidation, async (req, res) => {
   }
 });
 
-export default userController;
+export default authController;

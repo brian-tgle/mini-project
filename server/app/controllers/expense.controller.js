@@ -117,7 +117,7 @@ expenseController.get('/', authorizeValidation, (req, res) => {
   const populate = [
     {
       path: "category",
-      select: "title",
+      select: "title id",
       model: "category"
     },
     {

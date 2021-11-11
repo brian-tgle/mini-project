@@ -25,7 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ```bash
 $ git clone https://github.com/brian-tgle/mini-project.git
-$ cd booking
+$ cd mini-project
 ```
 ### Start server
 ```bash

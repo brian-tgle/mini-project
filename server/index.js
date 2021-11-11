@@ -6,7 +6,7 @@ import passport from 'passport';
 import { config } from './app/config/index.js';
 import { applyPassportStrategy } from './app/utils/passport.js';
 import db from './app/models/index.js';
-import userController from './app/controllers/auth.controller.js';
+import authController from './app/controllers/auth.controller.js';
 import expenseController from './app/controllers/expense.controller.js';
 import categoryController from './app/controllers/category.controller.js';
 
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome!!' });
 });
 
-app.use('/api/auth', userController);
+app.use('/api/auth', authController);
 app.use('/api/expenses', expenseController);
 app.use('/api/categories', categoryController);
 
