@@ -7,7 +7,9 @@ export default (mongoose, mongoosePaginate) => {
       value: Number,
       createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
     },
-    { timestamps: true }
+    {
+      timestamps: true
+    }
   );
 
   schema.method("toJSON", function() {
@@ -15,7 +17,6 @@ export default (mongoose, mongoosePaginate) => {
     object.id = _id;
     return object;
   });
-
   schema.plugin(mongoosePaginate);
 
   const Expense = mongoose.model("expense", schema);

@@ -2,7 +2,7 @@ export const ROUTES = {
   LOGIN: '/login',
   DASHBOARD: '/admin/dashboard',
   CATEGORY: '/admin/categories',
-  REPORT: '/admin/reports'
+  EXPENSE: '/admin/expense'
 };
 
 export const ERROR_CODE = {

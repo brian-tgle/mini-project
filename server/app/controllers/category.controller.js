@@ -1,5 +1,4 @@
 import express from 'express';
-import passport from 'passport';
 import { SOME_THING_WENT_WRONG } from '../constant/index.js';
 import db from '../models/index.js';
 import { authorizeValidation, generateServerErrorCode } from '../utils/validation.js';
@@ -75,7 +74,7 @@ categoryController.delete('/:categoryId', authorizeValidation, (req, res) => {
   }
 });
 
-categoryController.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+categoryController.get('/', authorizeValidation, (req, res) => {
   Category.find({}, null, { sort: { updatedAt: -1 } }, (err, result) => {
     if (err) {
       return res.status(500).send({

@@ -16,10 +16,10 @@ const dashboardRoutes = [
     layout: '/admin'
   },
   {
-    path: '/reports',
-    name: 'Reports',
+    path: '/expense',
+    name: 'Expense',
     icon: 'nc-icon nc-chart-pie-36',
-    component: lazy(() => import('views/Category')),
+    component: lazy(() => import('views/Expense')),
     layout: '/admin'
   }
 ];

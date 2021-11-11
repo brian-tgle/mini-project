@@ -8,7 +8,7 @@ const Footer = () => (
         ©
         {' '}
         {new Date().getFullYear()}
-        , Simple expenses management app
+        , Expenses management app
       </p>
     </Container>
   </footer>

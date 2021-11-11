@@ -9,6 +9,7 @@ import db from './app/models/index.js';
 import authController from './app/controllers/auth.controller.js';
 import expenseController from './app/controllers/expense.controller.js';
 import categoryController from './app/controllers/category.controller.js';
+import reportController from './app/controllers/report.controller.js';
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authController);
 app.use('/api/expenses', expenseController);
 app.use('/api/categories', categoryController);
+app.use('/api/report', reportController);
 
 // set port, listen for requests
 const PORT = config.env.port;

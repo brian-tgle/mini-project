@@ -3,12 +3,14 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
 import routes from 'routes';
+import useDeviceDetect from 'ultis/useDeviceDetect';
 import useAuthentication from 'stores/authentication/authentication';
 import { ROUTES } from 'common/constants';
 
 function Header({ toggleSidebar }) {
   const location = useLocation();
   const history = useHistory();
+  const { isMobile } = useDeviceDetect();
   const [authenticationState, authenticationActions] = useAuthentication();
   const getBrandText = () => {
     for (let i = 0; i < routes.length; i += 1) {
@@ -41,6 +43,7 @@ function Header({ toggleSidebar }) {
           <span className="navbar-toggler-bar burger-lines" />
           <span className="navbar-toggler-bar burger-lines" />
         </Navbar.Toggle>
+        {!isMobile && (
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto" navbar>
             <Nav.Item>
@@ -61,6 +64,7 @@ function Header({ toggleSidebar }) {
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
+        )}
       </Container>
     </Navbar>
   );

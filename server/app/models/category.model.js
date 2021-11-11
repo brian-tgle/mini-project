@@ -4,19 +4,26 @@ export default (mongoose, mongoosePaginate) => {
       title: String,
       description: String
     },
-    { timestamps: true }
+    {
+      timestamps: true
+    }
   );
-
-  schema.method("toJSON", function() {
+  schema.virtual('expensesInCategory', {
+    ref: 'expense',
+    foreignField: 'category',
+    localField: '_id'
+  });
+  schema.virtual('totalValues').get(function() {
+    return this.expensesInCategory.reduce((total, item) => total + item.value, 0);
+ });
+  schema.method("toJSON", function () {
     const { __v, _id, ...object } = this.toObject();
     object.id = _id;
     return object;
   });
-
-  schema.virtual('id').get(function() { return this._id; });
-
+  schema.set('toObject', { virtuals: true });
+  schema.set('toJSON', { virtuals: true });
   schema.plugin(mongoosePaginate);
-
   const Category = mongoose.model("category", schema);
   return Category;
 };
