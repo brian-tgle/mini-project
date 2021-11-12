@@ -6,11 +6,14 @@ const Category = db.categories;
 const reportController = express.Router();
 
 reportController.get('/', authorizeValidation, (_, res) => {
+  const today = new Date();
+  const priorDate = new Date().setDate(today.getDate() - 30);
   const populate = [
     {
       path: "expensesInCategory",
       select: "value",
-      model: "expense"
+      model: "expense",
+      match: { date: { $gte: priorDate } }, // Get data in last 30 days.
     }
   ];
   Category.find({}, null, { sort: { updatedAt: -1 }, populate }, (err, result) => {

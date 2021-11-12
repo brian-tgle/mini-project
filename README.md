@@ -41,6 +41,7 @@ Dummy accounts:
 ```user1 / 12345678a@A```
 
 ##### Exposed API:
+Endpoint: http://localhost:5000/api
 AUTH
 ```bash
 POST: /auth/login            Login
@@ -69,11 +70,16 @@ GET: /categories                List of categories
 POST: /categories               Create a new category
 ```
 ```bash
-PUT: /categories/:expensesId     Update a category
+PUT: /categories/:categoryId     Update a category
 ```
 ```bash
-DELETE: /categories/:expensesId  Delete a category
+DELETE: /categories/:categoryId  Delete a category
 ```
+REPORT
+```
+GET: /report                Get report of last 30 days.
+```
+
 ### Start client
 ```bash
 $ npm install
