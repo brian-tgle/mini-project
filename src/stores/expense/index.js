@@ -16,6 +16,19 @@ export const actions = {
   },
   setRefresh: (needRefresh) => ({ setState }) => {
     setState({ needRefresh });
+  },
+  setActionSuccess: () => ({ setState }) => {
+    setState({
+      showModal: false,
+      expenseData: {},
+      needRefresh: true
+    });
+  },
+  setCancelAction: () => ({ setState }) => {
+    setState({
+      showModal: false,
+      expenseData: {}
+    });
   }
 };
 

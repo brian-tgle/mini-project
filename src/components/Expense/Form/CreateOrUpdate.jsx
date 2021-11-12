@@ -43,9 +43,7 @@ const CreateExpenseForm = () => {
     initialValues,
     onSubmit: (data) => {
       ExpenseRepository.createOrUpdate(data).then(() => {
-        expenseActions.setShowModal(false);
-        expenseActions.setExpenseData({});
-        expenseActions.setRefresh(true);
+        expenseActions.setActionSuccess();
       }).catch(() => {
         setError(true);
       });
@@ -54,8 +52,7 @@ const CreateExpenseForm = () => {
   });
 
   const handleCancel = () => {
-    expenseActions.setShowModal(false);
-    expenseActions.setExpenseData({});
+    expenseActions.setCancelAction();
   };
 
   return (

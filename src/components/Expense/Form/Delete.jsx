@@ -8,14 +8,11 @@ const DeleteExpense = ({ expenseId }) => {
   const [error, setError] = useState(false);
   const [, expenseActions] = useExpenseStore();
   const handleCancel = () => {
-    expenseActions.setShowModal(false);
-    expenseActions.setExpenseData({});
+    expenseActions.setCancelAction();
   };
   const handleSubmit = () => {
     ExpenseRepository.delete(expenseId).then(() => {
-      expenseActions.setShowModal(false);
-      expenseActions.setExpenseData({});
-      expenseActions.setRefresh(true);
+      expenseActions.setActionSuccess();
     }).catch(() => {
       setError(true);
     });

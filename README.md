@@ -1,7 +1,8 @@
 # Simple Expenses Management web app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Simple Expense Management application that allow users to log and monitor expenses. Application contain frontend single page application with mobile first approach and backend REST API.
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This is simple Expense Management application that allow users to log and monitor expenses. Application contain frontend single page application with mobile first approach developed in ReactJS and backend REST API developed in NodeJS, ExpressJS.
+- In this project I served two kinds of CURD form: one is modal for create and update, onother one is create and update form on the same page with data list.
 
 ## Feature
 - Authentication
