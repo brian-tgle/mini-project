@@ -35,20 +35,32 @@ $ npm start
 ```
 Server live on: http://localhost:5000/
 
-Dummy accounts: 
-
 ##### Sample accounts:
 ```user1 / 12345678a@A```
 ```user2 / 12345678a@A```
 
 ##### Exposed API:
 Endpoint: http://localhost:5000/api
+
 AUTH
 ```bash
 POST: /auth/login            Login
+
+Payload:
+{
+  "username": string,
+  "password": string
+}
 ```
 ```bash
 GET: /auth/register          Register a new account
+
+Payload:
+{
+  "username": string,
+  "password": string,
+  "fullname": string
+}
 ```
 EXPENSES
 ```bash
@@ -56,9 +68,25 @@ GET: /expenses                List of expenses
 ```
 ```bash
 POST: /expenses               Create a new expense
+
+Payload:
+{
+  "title": string,
+  "category": id,
+  "date": date,
+  "value": number
+}
 ```
 ```bash
 PUT: /expenses/:expensesId     Update a expense
+
+Payload:
+{
+  "title": string,
+  "category": id,
+  "date": date,
+  "value": number
+}
 ```
 ```bash
 DELETE: /expenses/:expensesId  Delete a expenses
@@ -69,9 +97,21 @@ GET: /categories                List of categories
 ```
 ```bash
 POST: /categories               Create a new category
+
+Payload:
+{
+  "title": string,
+  "description": string
+}
 ```
 ```bash
 PUT: /categories/:categoryId     Update a category
+
+Payload:
+{
+  "title": string,
+  "description": string
+}
 ```
 ```bash
 DELETE: /categories/:categoryId  Delete a category
