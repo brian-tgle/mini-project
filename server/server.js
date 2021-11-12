@@ -46,8 +46,4 @@ app.use('/api/expenses', expenseController);
 app.use('/api/categories', categoryController);
 app.use('/api/report', reportController);
 
-// set port, listen for requests
-const PORT = config.env.port;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+export default app;

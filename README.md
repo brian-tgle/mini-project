@@ -1,17 +1,16 @@
 # Simple Expenses Management web app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Demo
+Simple Expense Management application that allow users to log and monitor expenses. Application contain frontend single page application with mobile first approach and backend REST API.
 
 ## Feature
 - Authentication
-- Expenses management
 - Category management
+- Expenses management
 - Visualize Report
 
-## Built with:
-- **NodeJS/MongoDB**: For server side. (Node 10+)
+## Built with (Technology description):
+- **NodeJS/MongoDB**: For server side. (Node 14+)
 - **ReactJS**: For client side. (React 17.x)
 - 💎 **Hooks**: Use react hooks API instead of traditional class API
 - 🚀 **State of The Art Development**: Newest development stack of NodeJS/React/Hooks/React Sweet State
@@ -37,8 +36,9 @@ Server live on: http://localhost:5000/
 
 Dummy accounts: 
 
-##### Sample account:
+##### Sample accounts:
 ```user1 / 12345678a@A```
+```user2 / 12345678a@A```
 
 ##### Exposed API:
 Endpoint: http://localhost:5000/api
@@ -101,3 +101,6 @@ Modern browsers and Internet Explorer 10+.
 ## IDE Settings
 Current setting available: auto fixing and linting code on save.
 Check it out in ```.vscode/settings.json```.
+
+## Production evirontment
+To server high trafic I decided to use AWS Lambda

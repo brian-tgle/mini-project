@@ -18,6 +18,7 @@ function Dashboard() {
   return loading ? <Loading />
     : (
       <Container fluid>
+        <h3 className="text-center">Last 30 days report</h3>
         <Row>
           <Col md="6">
             <BarChart data={reportData} />
