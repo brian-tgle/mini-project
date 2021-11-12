@@ -102,5 +102,6 @@ Modern browsers and Internet Explorer 10+.
 Current setting available: auto fixing and linting code on save.
 Check it out in ```.vscode/settings.json```.
 
-## Production evirontment
-To server high trafic I decided to use AWS Lambda
+## Production evironment
+To server high trafic I decided to use AWS Lambda which you pay only for resources used to deal with a particular request. It all setup in server folder.
+run ```npm run deploy```
